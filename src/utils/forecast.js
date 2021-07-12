@@ -16,6 +16,7 @@ const getForecast = (latitude, longitude, cb) => {
     cb(undefined, {
       currentTemparature: response.body.current.temperature,
       feelsLike: response.body.current.feelslike,
+      humidity: response.body.current.humidity,
     });
   });
 };

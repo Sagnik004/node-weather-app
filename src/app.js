@@ -61,7 +61,7 @@ app.get('/weather', (req, res) => {
     getForecast(
       latitude,
       longitude,
-      (forecastErr, { currentTemparature, feelsLike }) => {
+      (forecastErr, { currentTemparature, feelsLike, humidity }) => {
         if (forecastErr) {
           return res.send({
             error: forecastErr,
@@ -69,7 +69,7 @@ app.get('/weather', (req, res) => {
         }
 
         res.send({
-          forecast: `It is ${currentTemparature} degrees out. It feels like ${feelsLike}.`,
+          forecast: `It is ${currentTemparature} degrees out. It feels like ${feelsLike}. The humidity is ${humidity}%.`,
           location,
           address,
         });
